@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /build/
 /.settings/
 *.class
@@ -9,5 +7,4 @@
 *.jar
 *.war
 *.ear
->>>>>>> master
 /bin/
