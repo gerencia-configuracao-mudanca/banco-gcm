@@ -49,13 +49,13 @@ public class Debito implements Command {
 
 				conta.setValor(resultado);
 				contadao.Debitar(conta);
-				mensagem = "Débito no valor: " + valor + " para a conta " + cc + " realizado com sucesso";
+				mensagem = "Debito no valor: " + valor + " para a conta " + cc + " realizado com sucesso";
 				pagina = "debitar.jsp";
 				response.setContentType("text/html");
 				sessao.setAttribute("saveSaldo", saldo);
 				sessao.setAttribute("valormensagemdebito", mensagem);
 			}else{
-				mensagem = "Seu Saldo é Insuficiente tente um valor menor";
+				mensagem = "Seu Saldo eh Insuficiente tente um valor menor";
 				pagina = "debitar.jsp";
 				response.setContentType("text/html");
 				sessao.setAttribute("saveSaldo", saldo);
