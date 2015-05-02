@@ -30,6 +30,7 @@ public class Credito implements Command{
 		float bonus_operacao = 0;
 		float valor = 0;
 		float saldo = 0;
+		float tc = 0;
 		String mensagem  = "";
 		
 
@@ -48,17 +49,33 @@ public class Credito implements Command{
 			saldo = contadao.Saldo(conta);
 			bonus_atual = contadao.Bonus(numero_conta.toString());
 			
+			if(bonus_atual == 0){
+				conta.setBonus(bonus_operacao);
+				conta.setCc(numero_conta.toString());
+			}else{
 			
-			
+			conta.setCc(numero_conta.toString());
 			conta.setBonus(bonus_atual + bonus_operacao);
-			conta.setValor(saldo + valor);
+			}
 			
-			contadao.Creditar(conta);
+			tc = contadao.tipo(numero_conta.toString());
+			saldo = contadao.Saldo(conta);
 			
-			mensagem = "Crédito no valor: " + valor + " para a conta " + numero_conta + " realizado com sucesso";
-			response.setContentType("text/html");
-			sessao.setAttribute("saveSaldo", saldo);
-			sessao.setAttribute("valormensagemcredito", mensagem);
+			if(tc == 1){
+				conta.setValor(saldo + valor);
+				contadao.Creditar(conta);
+				response.setContentType("text/html");
+			}else if(tc == 13){
+				conta.setValor(saldo + valor);
+				contadao.Creditar(conta);
+				mensagem = "Crédito no valor: " + valor + " para a conta " + numero_conta + " realizado com sucesso";
+				response.setContentType("text/html");
+				sessao.setAttribute("mensagemCredito", mensagem);
+				sessao.setAttribute("valorCredito", valor);
+			}
+			else{
+				
+			}
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}

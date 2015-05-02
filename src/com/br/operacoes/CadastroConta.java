@@ -30,7 +30,8 @@ public class CadastroConta implements Command {
 			HttpServletResponse response) throws ServletException, IOException {
 		int ag = Integer.parseInt(request.getParameter("ag"));
 		String cc = request.getParameter("cc");
-		int valor = Integer.parseInt(request.getParameter("valor"));
+		float valor = Float.parseFloat(request.getParameter("valor"));
+		float tipo_conta = Float.parseFloat(request.getParameter("tc"));
 		Object id = new Object();
 	
 		HttpSession session = request.getSession();
@@ -43,12 +44,14 @@ public class CadastroConta implements Command {
 		conta.setAg(ag);
 		conta.setCc(cc);
 		conta.setValor(valor);
+		conta.setTipo(tipo_conta);
 		conta.setId_conta(numero);
 		//System.out.println("Numero da conta é: " + numero);
 		try{
 			ContaDao contadao = new ContaDao();
 			contadao.adicionarConta(conta);
-			session.setAttribute("savenumeroconta", cc);
+			session.setAttribute("tc", tipo_conta);
+			//session.setAttribute("savenumeroconta", cc);
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}

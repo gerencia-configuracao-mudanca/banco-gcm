@@ -21,13 +21,14 @@ public class ContaDao implements ContaInterface{
 
 	@Override
 	public void adicionarConta(Conta conta) {
-		String sql = "INSERT INTO conta (ag,cc,valor,id_conta) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO conta (ag,cc,valor,id_conta, tipo) VALUES (?,?,?,?,?)";
 		try{
 			PreparedStatement ps = connection.prepareStatement(sql);			
 			ps.setLong(1, conta.getAg());
 			ps.setString(2, conta.getCc());
 			ps.setFloat(3, conta.getValor());
 			ps.setLong(4, conta.getId_conta());
+			ps.setFloat(5, conta.getTipo());
 			ps.execute();
 			ps.close();
 		}catch(SQLException erro){
@@ -40,7 +41,7 @@ public class ContaDao implements ContaInterface{
 	@Override
 	public ResultSet ListarUsuario() {
 		ResultSet rs;
-		String sql = "SELECT conta.ag, conta.cc, conta.valor, usuarios.nome	FROM usuarios INNER JOIN conta on conta.id_conta = usuarios.id_usuario";
+		String sql = "SELECT conta.ag, conta.cc, conta.valor, conta.tipo, usuarios.nome	FROM usuarios INNER JOIN conta on conta.id_conta = usuarios.id_usuario";
 		try{
 			PreparedStatement	ps = connection.prepareStatement(sql);
 			rs = ps.executeQuery(sql);
@@ -89,6 +90,27 @@ public class ContaDao implements ContaInterface{
 		}
 		return bonus;
 	}
+	
+	
+	
+	public float tipo(String conta) {
+		ResultSet rs;
+		float tipo = 0;
+		String sql = "SELECT tipo FROM conta WHERE conta.cc = "+conta+";";
+		try{
+			java.sql.Statement st = connection.createStatement();
+			rs = st.executeQuery(sql);
+			while(rs.next()){
+				tipo = rs.getInt("tipo");
+			}
+			System.out.println("tipo igual a: " + tipo);
+			//rs.close();
+		}catch(SQLException erro){
+			throw new RuntimeException(erro);
+		}
+		return tipo;
+	}
+	
 	
 	
 	@Override

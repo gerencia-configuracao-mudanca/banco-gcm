@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<jsp:useBean id="beanLogin" class="com.br.model.Usuario"></jsp:useBean>
+<jsp:setProperty property="*" name="beanLogin" />
+<jsp:useBean id="beanusuariodao" class="com.br.dao.UsuarioDao"></jsp:useBean>
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
@@ -25,6 +31,10 @@
 				</div>
 				<div>
 					<input type="text" required name="cc" placeholder="Numero da Conta"><br>
+
+				</div>
+				<div>
+					<input type="text" required name="tc" placeholder="Tipo da Conta"><br>
 
 				</div>
 				<div>

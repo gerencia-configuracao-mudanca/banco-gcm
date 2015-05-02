@@ -12,12 +12,14 @@ public interface ContaInterface {
 
 	public ResultSet ListarUsuario();
 
-	void Creditar(Conta conta);
-
 	void Debitar(Conta conta);
 
 	float Saldo(Conta conta);
 
 	float Bonus(String conta);
+
+	void Creditar(Conta conta);
+
+	float tipo(String conta);
 
 }

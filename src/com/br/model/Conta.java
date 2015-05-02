@@ -8,7 +8,14 @@ public class Conta {
 	private float valor;
 	private int id_conta;
 	private float bonus;
+	private float tipo;
 	
+	public float getTipo() {
+		return tipo;
+	}
+	public void setTipo(float tipo) {
+		this.tipo = tipo;
+	}
 	public int getId_conta() {
 		return id_conta;
 	}
