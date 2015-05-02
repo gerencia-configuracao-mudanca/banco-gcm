@@ -36,7 +36,7 @@ public class Credito implements Command{
 		HttpSession sessao = request.getSession();
 		numero_conta = sessao.getAttribute("cc");
 		valor = Float.parseFloat(request.getParameter("valor"));
-		bonus_operacao =  (float) Math.floor(valor/10);
+		bonus_operacao =  (float) Math.floor(valor * 0.03);
 		
 		
 		

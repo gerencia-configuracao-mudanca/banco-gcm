@@ -35,7 +35,7 @@ public class Bonus implements Command {
 				ContaDao contadao = new ContaDao();
 				qtd = contadao.Bonus(numconta);
 				System.out.println(qtd);
-				mensagem = "Seu Bonus é : " + qtd + " Continue usando nossos serviços e acumule bônus.";
+				mensagem = "Seu Bonus eh : " + qtd + " Continue usando nossos servicos e acumule bonus.";
 				response.setContentType("text/html");
 				sessao.setAttribute("saveBonus", mensagem);
 			}catch(ClassNotFoundException e){
