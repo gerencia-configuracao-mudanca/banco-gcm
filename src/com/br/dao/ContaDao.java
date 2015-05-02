@@ -88,8 +88,6 @@ public class ContaDao implements ContaInterface{
 	}
 	
 	
-<<<<<<< HEAD
-	
 	public float tipo(String conta) {
 		ResultSet rs;
 		float tipo = 0;
@@ -109,11 +107,7 @@ public class ContaDao implements ContaInterface{
 	}
 	
 	
-	
-	@Override
-=======
 
->>>>>>> master
 	public void Creditar(Conta conta) {
 		String sql = "UPDATE conta SET conta.valor= "+ conta.getValor()+", conta.bonus= "+conta.getBonus()+" where conta.cc= '"+conta.getCc()+ "';";
 		try{
