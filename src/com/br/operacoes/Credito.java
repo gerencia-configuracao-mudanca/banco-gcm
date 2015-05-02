@@ -37,7 +37,7 @@ public class Credito implements Command{
 		HttpSession sessao = request.getSession();
 		numero_conta = sessao.getAttribute("cc");
 		valor = Float.parseFloat(request.getParameter("valor"));
-		bonus_operacao =  (float) Math.floor(valor/10);
+		bonus_operacao =  (float) Math.floor(valor * 0.03);
 		
 		
 		
@@ -61,6 +61,7 @@ public class Credito implements Command{
 			tc = contadao.tipo(numero_conta.toString());
 			saldo = contadao.Saldo(conta);
 			
+<<<<<<< HEAD
 			if(tc == 1){
 				conta.setValor(saldo + valor);
 				contadao.Creditar(conta);
@@ -76,6 +77,12 @@ public class Credito implements Command{
 			else{
 				
 			}
+=======
+			mensagem = "Credito no valor: " + valor + " para a conta " + numero_conta + " realizado com sucesso";
+			response.setContentType("text/html");
+			sessao.setAttribute("saveSaldo", saldo);
+			sessao.setAttribute("valormensagemcredito", mensagem);
+>>>>>>> master
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}

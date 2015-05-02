@@ -11,7 +11,7 @@ import com.br.model.Usuario;
 
 public class CadastroUsuario implements Command{
 
-	@Override
+
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String nome = request.getParameter("nome");
