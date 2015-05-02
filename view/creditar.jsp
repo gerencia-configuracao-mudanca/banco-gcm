@@ -35,6 +35,7 @@
     
     
 </ol>
+<p>Digite o valor que voce deseja creditar e clique no botao Enviar</p>
 		<%Object valor =  session.getAttribute("valormensagemcredito"); %>
 
 
