@@ -25,7 +25,6 @@ public class CadastroConta implements Command {
        
     }
 
-	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		int ag = Integer.parseInt(request.getParameter("ag"));

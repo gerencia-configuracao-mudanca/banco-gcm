@@ -39,12 +39,7 @@
 		<%Object valor =  session.getAttribute("valormensagemdebito"); %>
 
 	<%if(valor != null){ %> 
-<<<<<<< HEAD
-				
-				<%= valor.toString() %>
-				 
-	<%} else {%>
-=======
+
 				<%= valor.toString() %> 
 				<%session.removeAttribute("valormensagemdebito"); %>
 		<%}
@@ -53,11 +48,11 @@
 	
 			<%}%>
 		
->>>>>>> master
+
 		
 		Digite o valor que voce deseja debitar e clique no botão enviar.
 	
-	<%}%>
+	
 		
 				<form name="formConta" method="post" action="Controller">
 
