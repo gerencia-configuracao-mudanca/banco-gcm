@@ -21,7 +21,7 @@ public class Logout implements Command {
         super();
     }
 
-	@Override
+
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");

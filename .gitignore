@@ -1,1 +1,13 @@
+<<<<<<< HEAD
+=======
+/build/
+/.settings/
+*.class
+*.classpath
+
+# Package Files #
+*.jar
+*.war
+*.ear
+>>>>>>> master
 /bin/

@@ -16,7 +16,7 @@ public class UsuarioDao implements UsuarioInterface{
 	public UsuarioDao() throws ClassNotFoundException{
 		this.connection = new ConnectionFactory().getConnection();
 	}
-	@Override
+
 	public void adicionarUsuario(Usuario usuario) {
 		String sql = "INSERT INTO usuarios (nome,senha) VALUES (?,?)";
 		try{
@@ -33,7 +33,7 @@ public class UsuarioDao implements UsuarioInterface{
 	}
 
 	
-	@Override
+
 	public String cc(Usuario usuario) {
 		ResultSet rs;
 		String numeroConta = "";
@@ -54,7 +54,7 @@ public class UsuarioDao implements UsuarioInterface{
 	
 	
 	
-	@Override
+
 	public boolean AutenticarUsuario(Usuario usuario) {
 		boolean autenticar = false;
 		String sql = "select * from usuarios where " + "nome='"+usuario.getUsuario()+"' and "+"senha='"+usuario.getSenha()+"';";
@@ -93,8 +93,7 @@ public class UsuarioDao implements UsuarioInterface{
 	
 
 	
-	
-	@Override
+
 	public ResultSet ListarUsuario() {
 		ResultSet rs;
 		String sql = "SELECT conta.ag, conta.cc, conta.valor, usuarios.nome	FROM usuarios INNER JOIN conta on conta.id_conta = usuarios.id_usuario";

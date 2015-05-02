@@ -1,4 +1,5 @@
 package com.br.operacoes;
+import com.br.model.*;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -19,7 +20,7 @@ public class Debito implements Command {
 		super();
 	}
 
-	@Override
+
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
@@ -44,18 +45,18 @@ public class Debito implements Command {
 			ContaDao contadao = new ContaDao();
 			saldo = contadao.Saldo(conta);
 			
-			if(saldo >= valor){
+			if(saldo >= valor & saldo >= 2){
 				resultado = saldo - valor;
 
 				conta.setValor(resultado);
 				contadao.Debitar(conta);
-				mensagem = "Débito no valor: " + valor + " para a conta " + cc + " realizado com sucesso";
+				mensagem = "Debito no valor: " + valor + " para a conta " + cc + " realizado com sucesso";
 				pagina = "debitar.jsp";
 				response.setContentType("text/html");
 				sessao.setAttribute("saveSaldo", saldo);
 				sessao.setAttribute("valormensagemdebito", mensagem);
 			}else{
-				mensagem = "Seu Saldo é Insuficiente tente um valor menor";
+				mensagem = "Seu Saldo eh Insuficiente tente um valor menor";
 				pagina = "debitar.jsp";
 				response.setContentType("text/html");
 				sessao.setAttribute("saveSaldo", saldo);

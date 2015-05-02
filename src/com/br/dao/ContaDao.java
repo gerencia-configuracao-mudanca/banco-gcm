@@ -19,7 +19,6 @@ public class ContaDao implements ContaInterface{
 		this.connection = new ConnectionFactory().getConnection();
 	}
 
-	@Override
 	public void adicionarConta(Conta conta) {
 		String sql = "INSERT INTO conta (ag,cc,valor,id_conta) VALUES (?,?,?,?)";
 		try{
@@ -37,7 +36,6 @@ public class ContaDao implements ContaInterface{
 	}
 
 	
-	@Override
 	public ResultSet ListarUsuario() {
 		ResultSet rs;
 		String sql = "SELECT conta.ag, conta.cc, conta.valor, usuarios.nome	FROM usuarios INNER JOIN conta on conta.id_conta = usuarios.id_usuario";
@@ -52,7 +50,6 @@ public class ContaDao implements ContaInterface{
 	}
 	
 
-	@Override
 	public float Saldo(Conta conta) {
 		ResultSet rs;
 		float valor2 = 0;
@@ -71,7 +68,6 @@ public class ContaDao implements ContaInterface{
 		return valor2;
 	}	
 
-	@Override
 	public float Bonus(String conta) {
 		ResultSet rs;
 		float bonus = 0;
@@ -91,7 +87,7 @@ public class ContaDao implements ContaInterface{
 	}
 	
 	
-	@Override
+
 	public void Creditar(Conta conta) {
 		String sql = "UPDATE conta SET conta.valor= "+ conta.getValor()+", conta.bonus= "+conta.getBonus()+" where conta.cc= '"+conta.getCc()+ "';";
 		try{
@@ -104,7 +100,6 @@ public class ContaDao implements ContaInterface{
 	}
 
 
-	@Override
 	public void Debitar(Conta conta) {
 		String sql = "UPDATE conta SET conta.valor= "+ conta.getValor()+" where conta.cc= '"+conta.getCc()+ "';";
 		try{
