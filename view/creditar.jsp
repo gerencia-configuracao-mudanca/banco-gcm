@@ -40,7 +40,9 @@
 
 
 	<%if(valor != null){ %> 
-				<%= valor.toString() %> 
+				<%= valor.toString() %>
+				<%session.removeAttribute("valormensagemcredito"); %>
+				 
 		<%}
 	else {%>
 			
