@@ -35,19 +35,19 @@
     
     
 </ol>
+			
 		<%Object valor =  session.getAttribute("valormensagemdebito"); %>
 
-
 	<%if(valor != null){ %> 
-				<%= valor.toString() %> 
-		<%}
-	else {%>
-			
-			<%}%>
+				
+				<%= valor.toString() %>
+				 
+	<%} else {%>
 		
+		Digite o valor que voce deseja debitar e clique no botão enviar.
+	
+	<%}%>
 		
-	
-	
 				<form name="formConta" method="post" action="Controller">
 
 			<input type="hidden" id="cmd" required  name="cmd" value="Debitar"/>
