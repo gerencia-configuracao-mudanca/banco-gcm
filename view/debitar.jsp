@@ -40,9 +40,11 @@
 
 	<%if(valor != null){ %> 
 				<%= valor.toString() %> 
+				<%session.removeAttribute("valormensagemdebito"); %>
 		<%}
 	else {%>
-			
+	
+	
 			<%}%>
 		
 		
@@ -51,6 +53,7 @@
 				<form name="formConta" method="post" action="Controller">
 
 			<input type="hidden" id="cmd" required  name="cmd" value="Debitar"/>
+			
 				<div>
 					<input type="text" name="valor" placeholder="Quantidade de dinheiro a ser creditado"><br>
 				</div>
