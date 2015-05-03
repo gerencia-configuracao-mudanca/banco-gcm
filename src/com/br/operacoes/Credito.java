@@ -65,7 +65,7 @@ public class Credito implements Command{
 			if(tc == 1){
 				conta.setValor(saldo + valor);
 				contadao.Creditar(conta);
-				mensagem = "Crédito no valor: " + valor + " para a conta " + numero_conta + " realizado com sucesso";
+				mensagem = "Crédito no valor: " + valor + " para a poupança " + numero_conta + " foi realizado com sucesso";
 				response.setContentType("text/html");
 				sessao.setAttribute("mensagemCredito", mensagem);
 				sessao.setAttribute("valorCredito", valor);
