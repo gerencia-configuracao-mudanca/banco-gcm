@@ -22,7 +22,7 @@ public class ContaDao implements ContaInterface{
 	public void adicionarConta(Conta conta) {
 		String sql = "INSERT INTO conta (ag,cc,valor,id_conta, tipo) VALUES (?,?,?,?,?)";
 		try{
-			PreparedStatement ps = connection.prepareStatement(sql);			
+			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setLong(1, conta.getAg());
 			ps.setString(2, conta.getCc());
 			ps.setFloat(3, conta.getValor());
@@ -36,7 +36,7 @@ public class ContaDao implements ContaInterface{
 		}
 	}
 
-	
+
 	public ResultSet ListarUsuario() {
 		ResultSet rs;
 		String sql = "SELECT conta.ag, conta.cc, conta.valor, conta.tipo, usuarios.nome	FROM usuarios INNER JOIN conta on conta.id_conta = usuarios.id_usuario";
@@ -49,7 +49,7 @@ public class ContaDao implements ContaInterface{
 		return rs;
 
 	}
-	
+
 
 	public float Saldo(Conta conta) {
 		ResultSet rs;
@@ -60,14 +60,14 @@ public class ContaDao implements ContaInterface{
 			rs = st.executeQuery(sql);
 			while(rs.next()){
 				valor2 = rs.getInt("valor");
-				System.out.println(valor2);
+				//System.out.println(valor2);
 			}
 			//rs.close();
 		}catch(SQLException erro){
 			throw new RuntimeException(erro);
 		}
 		return valor2;
-	}	
+	}
 
 	public float Bonus(String conta) {
 		ResultSet rs;
@@ -79,15 +79,15 @@ public class ContaDao implements ContaInterface{
 			while(rs.next()){
 				bonus = rs.getInt("bonus");
 			}
-			System.out.println("Bonus igual a: " + bonus);
+			//System.out.println("Bonus igual a: " + bonus);
 			//rs.close();
 		}catch(SQLException erro){
 			throw new RuntimeException(erro);
 		}
 		return bonus;
 	}
-	
-	
+
+
 	public float tipo(String conta) {
 		ResultSet rs;
 		float tipo = 0;
@@ -98,15 +98,15 @@ public class ContaDao implements ContaInterface{
 			while(rs.next()){
 				tipo = rs.getInt("tipo");
 			}
-			System.out.println("tipo igual a: " + tipo);
+			//System.out.println("tipo igual a: " + tipo);
 			//rs.close();
 		}catch(SQLException erro){
 			throw new RuntimeException(erro);
 		}
 		return tipo;
 	}
-	
-	
+
+
 
 	public void Creditar(Conta conta) {
 		String sql = "UPDATE conta SET conta.valor= "+ conta.getValor()+", conta.bonus= "+conta.getBonus()+" where conta.cc= '"+conta.getCc()+ "';";
@@ -130,6 +130,6 @@ public class ContaDao implements ContaInterface{
 
 		}
 	}
-	
-	
+
+
 }

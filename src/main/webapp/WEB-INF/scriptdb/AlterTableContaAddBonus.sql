@@ -1,0 +1,1 @@
+ALTER TABLE conta ADD bonus FLOAT;

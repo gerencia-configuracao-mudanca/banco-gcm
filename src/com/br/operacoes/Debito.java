@@ -1,5 +1,4 @@
 package com.br.operacoes;
-import com.br.model.*;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -23,28 +22,28 @@ public class Debito implements Command {
 
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+
 		Object cc = new Object();
 		String pagina = "";
 		String mensagem = "";
-		
+
 		float valor = 0;
 		float resultado = 0;
 		float saldo = 0;
-		
+
 		HttpSession sessao = request.getSession();
-		
+
 		cc = sessao.getAttribute("cc");
 		valor = Integer.parseInt(request.getParameter("valor"));
 		resultado = 0;
-		
-		
+
+
 		try{
 			Conta conta = new Conta();
 			conta.setCc(cc.toString());
 			ContaDao contadao = new ContaDao();
 			saldo = contadao.Saldo(conta);
-			
+
 			if(saldo >= valor & saldo >= 2){
 				resultado = saldo - valor;
 
@@ -62,9 +61,9 @@ public class Debito implements Command {
 				sessao.setAttribute("saveSaldo", saldo);
 				sessao.setAttribute("valormensagemdebito", mensagem);
 			}
-			
-			
-			
+
+
+
 		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}

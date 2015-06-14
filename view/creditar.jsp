@@ -32,8 +32,8 @@
 				<input type="hidden" id="cmd" required  name="cmd" value="bonus"/>
     </form>
 	</li>
-    
-    
+
+
 </ol>
 
 <p>Digite o valor que voce deseja creditar e clique no botao Enviar</p>
@@ -41,23 +41,19 @@
 		<%Object valor =  session.getAttribute("valormensagemcredito"); %>
 
 
-	<%if(valor != null){ %> 
-<<<<<<< HEAD
-				<%= valor.toString() %> 
-				<%session.removeAttribute("valormensagemcredito"); %>
-=======
+	<%if(valor != null){ %>
+
 				<%= valor.toString() %>
 				<%session.removeAttribute("valormensagemcredito"); %>
-				 
->>>>>>> master
+
 		<%}
 	else {%>
-			
+
 			<%}%>
-		
-		
-	
-	
+
+
+
+
 				<form name="formConta" method="post" action="Controller">
 
 			<input type="hidden" id="cmd" required  name="cmd" value="Creditar"/>
@@ -65,27 +61,27 @@
 					<input type="text" name="valor" placeholder="Quantidade de dinheiro a ser creditado"><br>
 				</div>
 				<div>
-				
+
 					<input type="submit" id="enviar" value="Enviar">
-					
-				  
+
+
 				</div>
-				
+
 			</form>
-			
 
 
 
 
 
-		
-	
-		
-	
-	
 
 
-		
+
+
+
+
+
+
+
 		<div class="button">
 		</div><!-- button -->
 	</section><!-- content -->
